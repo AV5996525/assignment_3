@@ -284,13 +284,13 @@ def delivy (x) : #final delivery/discount calculator
                 
                 print(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand), str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
                 print("You Saved $",round(discnt15,2),"\nThank you for choosing Arnold's Amazing Eats II")
-                newFile = open("arnoldreceipt.txt", 'w')
-                newFile = open("arnoldreceipt.txt", 'a')
-                newFile.write("Date/Time: {}\nReceipt".format(now))
+                newFile = open("arnoldreceipt.txt", 'w') #creating file to store receipt in txt file name arnoldreceipt.txt
+                newFile = open("arnoldreceipt.txt", 'a') #accessing file to add receipt info in txt file name arnoldreceipt.txt
+                newFile.write("Date/Time: {}\nReceipt".format(now)) #writing current date and time to receipt
                 newFile.write("\n")
-                newFile.write(tabulate(custInfo, headers = custHead))
+                newFile.write(tabulate(custInfo, headers = custHead)) #writing summary to txt file 
                 newFile.write("\n")
-                newFile.write("Item------Quantity-----Unit Price($)-----Sub Total($)")
+                newFile.write("Item--Quantity--Unit Price($)--Sub Total($)")
                 for sx1,sx2,sx3,sx4 in zip(amp, mass, period, ecc):
                     newFile.write("\n")
                     newFile.write("{}\t".format(sx1))
@@ -300,7 +300,7 @@ def delivy (x) : #final delivery/discount calculator
                 newFile.write("\n")
                 newFile.write("\n")
                 newFile.write(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand), str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
-                newFile.close()
+                newFile.close() #closing file
                 print("The summary txt file has been succesfully written to ", os.getcwd()) #Displaying file pathway
                 print("File name: ", newFile) #Displaying file name "arnoldreceipt.txt"
             elif (subT) >= 100 and 500 > (subT) : #discount threshold
@@ -417,6 +417,25 @@ def delivy (x) : #final delivery/discount calculator
                 
                 print(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand),str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
                 print("You Saved $",round(discnt10,2),"\nThank you for choosing Arnold's Amazing Eats II")
+                newFile = open("arnoldreceipt.txt", 'w') #creating file to store receipt in txt file name arnoldreceipt.txt
+                newFile = open("arnoldreceipt.txt", 'a') #accessing file to add receipt info in txt file name arnoldreceipt.txt
+                newFile.write("Date/Time: {}\nReceipt".format(now)) #writing current date and time to receipt
+                newFile.write("\n")
+                newFile.write(tabulate(custInfo, headers = custHead)) #writing summary to txt file 
+                newFile.write("\n")
+                newFile.write("Item--Quantity--Unit Price($)--Sub Total($)")
+                for sx1,sx2,sx3,sx4 in zip(amp, mass, period, ecc):
+                    newFile.write("\n")
+                    newFile.write("{}\t".format(sx1))
+                    newFile.write("{}\t".format(sx2))
+                    newFile.write("{}\t".format(sx3))
+                    newFile.write("{}\t".format(sx4))                  
+                newFile.write("\n")
+                newFile.write("\n")
+                newFile.write(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand), str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
+                newFile.close() #closing file
+                print("The summary txt file has been succesfully written to ", os.getcwd()) #Displaying file pathway
+                print("File name: ", newFile) #Displaying file name "arnoldreceipt.txt"
             elif (subT) < 500 : #discount threshold for orders under $500
                 if subT > 30:
                     discnt5 = (.05*(subT))
@@ -530,6 +549,25 @@ def delivy (x) : #final delivery/discount calculator
                     
                     print(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand),str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
                     print("You Saved $",round(discnt5,2),"\nThank you for choosing Arnold's Amazing Eats II")
+                    newFile = open("arnoldreceipt.txt", 'w') #creating file to store receipt in txt file name arnoldreceipt.txt
+                    newFile = open("arnoldreceipt.txt", 'a') #accessing file to add receipt info in txt file name arnoldreceipt.txt
+                    newFile.write("Date/Time: {}\nReceipt".format(now)) #writing current date and time to receipt
+                    newFile.write("\n")
+                    newFile.write(tabulate(custInfo, headers = custHead)) #writing summary to txt file 
+                    newFile.write("\n")
+                    newFile.write("Item--Quantity--Unit Price($)--Sub Total($)")
+                    for sx1,sx2,sx3,sx4 in zip(amp, mass, period, ecc):
+                        newFile.write("\n")
+                        newFile.write("{}\t".format(sx1))
+                        newFile.write("{}\t".format(sx2))
+                        newFile.write("{}\t".format(sx3))
+                        newFile.write("{}\t".format(sx4))                  
+                    newFile.write("\n")
+                    newFile.write("\n")
+                    newFile.write(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand), str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
+                    newFile.close() #closing file
+                    print("The summary txt file has been succesfully written to ", os.getcwd()) #Displaying file pathway
+                    print("File name: ", newFile) #Displaying file name "arnoldreceipt.txt"
                 if subT < 30: # under $30 threshold
                     discnt5 = (.05*(subT))
                     grand = ((subT) - discnt5 + 5)
@@ -648,6 +686,25 @@ def delivy (x) : #final delivery/discount calculator
                     
                     print(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand),str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
                     print("You Saved $",round(discnt5,2),"\nThank you for choosing Arnold's Amazing Eats II")
+                    newFile = open("arnoldreceipt.txt", 'w') #creating file to store receipt in txt file name arnoldreceipt.txt
+                    newFile = open("arnoldreceipt.txt", 'a') #accessing file to add receipt info in txt file name arnoldreceipt.txt
+                    newFile.write("Date/Time: {}\nReceipt".format(now)) #writing current date and time to receipt
+                    newFile.write("\n")
+                    newFile.write(tabulate(custInfo, headers = custHead)) #writing summary to txt file 
+                    newFile.write("\n")
+                    newFile.write("Item--Quantity--Unit Price($)--Sub Total($)")
+                    for sx1,sx2,sx3,sx4 in zip(amp, mass, period, ecc):
+                        newFile.write("\n")
+                        newFile.write("{}\t".format(sx1))
+                        newFile.write("{}\t".format(sx2))
+                        newFile.write("{}\t".format(sx3))
+                        newFile.write("{}\t".format(sx4))                  
+                    newFile.write("\n")
+                    newFile.write("\n")
+                    newFile.write(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand), str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
+                    newFile.close() #closing file
+                    print("The summary txt file has been succesfully written to ", os.getcwd()) #Displaying file pathway
+                    print("File name: ", newFile) #Displaying file name "arnoldreceipt.txt"
         if deliv == "N" :
             del custInfo["City"], custInfo["Province"],custInfo["Postal Code"],custInfo["Address"]
             custInfo["Instructions"].append("Pick up")
@@ -758,6 +815,25 @@ def delivy (x) : #final delivery/discount calculator
                 
                 print(tabulate([[  str(taxTime(grand)), str(grand),str(taxTime(grand)+grand)]], headers = ['Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
                 print("You Saved $",round(discnt15,2),"\nThank you for choosing Arnold's Amazing Eats II")
+                newFile = open("arnoldreceipt.txt", 'w') #creating file to store receipt in txt file name arnoldreceipt.txt
+                newFile = open("arnoldreceipt.txt", 'a') #accessing file to add receipt info in txt file name arnoldreceipt.txt
+                newFile.write("Date/Time: {}\nReceipt".format(now)) #writing current date and time to receipt
+                newFile.write("\n")
+                newFile.write(tabulate(custInfo, headers = custHead)) #writing summary to txt file 
+                newFile.write("\n")
+                newFile.write("Item--Quantity--Unit Price($)--Sub Total($)")
+                for sx1,sx2,sx3,sx4 in zip(amp, mass, period, ecc):
+                    newFile.write("\n")
+                    newFile.write("{}\t".format(sx1))
+                    newFile.write("{}\t".format(sx2))
+                    newFile.write("{}\t".format(sx3))
+                    newFile.write("{}\t".format(sx4))                  
+                newFile.write("\n")
+                newFile.write("\n")
+                newFile.write(tabulate([[  str(taxTime(grand)), str(grand),str(taxTime(grand)+grand)]], headers = ['Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
+                newFile.close() #closing file
+                print("The summary txt file has been succesfully written to ", os.getcwd()) #Displaying file pathway
+                print("File name: ", newFile) #Displaying file name "arnoldreceipt.txt"
             elif (subT) >= 100 and 500 > (subT) :
                 discnt10 = (.10*(subT))
                 grand = ((subT) - discnt10)
@@ -863,6 +939,25 @@ def delivy (x) : #final delivery/discount calculator
                 print(tabulate(table, headers=headers, floatfmt=".2f"))
                 print("You Saved $",round(discnt10,2),"\nThank you for choosing Arnold's Amazing Eats II")
                 print(tabulate([[  str(taxTime(grand)), str(grand),str(taxTime(grand)+grand)]], headers = ['Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
+                newFile = open("arnoldreceipt.txt", 'w') #creating file to store receipt in txt file name arnoldreceipt.txt
+                newFile = open("arnoldreceipt.txt", 'a') #accessing file to add receipt info in txt file name arnoldreceipt.txt
+                newFile.write("Date/Time: {}\nReceipt".format(now)) #writing current date and time to receipt
+                newFile.write("\n")
+                newFile.write(tabulate(custInfo, headers = custHead)) #writing summary to txt file 
+                newFile.write("\n")
+                newFile.write("Item--Quantity--Unit Price($)--Sub Total($)")
+                for sx1,sx2,sx3,sx4 in zip(amp, mass, period, ecc):
+                    newFile.write("\n")
+                    newFile.write("{}\t".format(sx1))
+                    newFile.write("{}\t".format(sx2))
+                    newFile.write("{}\t".format(sx3))
+                    newFile.write("{}\t".format(sx4))                  
+                newFile.write("\n")
+                newFile.write("\n")
+                newFile.write(tabulate([[  str(taxTime(grand)), str(grand),str(taxTime(grand)+grand)]], headers = ['Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
+                newFile.close() #closing file
+                print("The summary txt file has been succesfully written to ", os.getcwd()) #Displaying file pathway
+                print("File name: ", newFile) #Displaying file name "arnoldreceipt.txt"
             elif (subT) < 500 :
                 discnt5 = (.05*(subT))
                 grand = ((subT) - discnt5)
@@ -970,6 +1065,25 @@ def delivy (x) : #final delivery/discount calculator
                 
                 print(tabulate([[  str(taxTime(grand)), str(grand),str(taxTime(grand)+grand)]], headers = ['Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
                 print("You Saved $",round(discnt5,2),"\nThank you for choosing Arnold's Amazing Eats II")
+                newFile = open("arnoldreceipt.txt", 'w') #creating file to store receipt in txt file name arnoldreceipt.txt
+                newFile = open("arnoldreceipt.txt", 'a') #accessing file to add receipt info in txt file name arnoldreceipt.txt
+                newFile.write("Date/Time: {}\nReceipt".format(now)) #writing current date and time to receipt
+                newFile.write("\n")
+                newFile.write(tabulate(custInfo, headers = custHead)) #writing summary to txt file 
+                newFile.write("\n")
+                newFile.write("Item--Quantity--Unit Price($)--Sub Total($)")
+                for sx1,sx2,sx3,sx4 in zip(amp, mass, period, ecc):
+                    newFile.write("\n")
+                    newFile.write("{}\t".format(sx1))
+                    newFile.write("{}\t".format(sx2))
+                    newFile.write("{}\t".format(sx3))
+                    newFile.write("{}\t".format(sx4))                  
+                newFile.write("\n")
+                newFile.write("\n")
+                newFile.write(tabulate([[  str(taxTime(grand)), str(grand),str(taxTime(grand)+grand)]], headers = ['Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
+                newFile.close() #closing file
+                print("The summary txt file has been succesfully written to ", os.getcwd()) #Displaying file pathway
+                print("File name: ", newFile) #Displaying file name "arnoldreceipt.txt"
             break
         elif deliv.isdigit() :
                 print("Invalid response. No numbers!")   
