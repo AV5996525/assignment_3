@@ -36,7 +36,12 @@ def mm (): # creating main menu function
     cOrderSel = str(input("Enter your selection using the numbers associated with each item, Press 'C' to check out:").strip())    #order selection and user input
     if cOrderSel == '1' : #menu item number 1
         cOrderTotal1["Name"].append("Grilled cheese") #adding entry to dictionary for order selection 
-        a = int(input("How many")) #prompting for user input for quantity
+        while True: 
+            try: #try except block to handle non int values entered as quantity with a loop to repeat the prompt
+                a = int(input("How many")) #prompting for user input for quantity
+                break
+            except ValueError:
+                print("Invalid value, try again!")
         
         cOrderTotal1["Quantity"].append(a) #increasing quantity per item if user inputs 1
         if a > 0:
@@ -44,7 +49,12 @@ def mm (): # creating main menu function
             cOrderTotalX.append("Grilled cheese")
     if cOrderSel == '2' : #menu item number 2
         cOrderTotal2["Name"].append("Hot dog")
-        b = int(input("How many"))
+        while True:
+            try: #try except block to handle non int values entered as quantity with a loop to repeat the prompt
+                b = int(input("How many"))
+                break
+            except ValueError:
+                print("invalid value, try again!")
         cOrderTotal2["Quantity"].append(b) #increasing quantity per item if user inputs 2
         
         if b > 0:
@@ -52,28 +62,48 @@ def mm (): # creating main menu function
             cOrderTotalX.append("Hot dog")
     if cOrderSel == '3' : #menu item number 3
         cOrderTotal3["Name"].append("Sushi")
-        c = int(input("How many"))
+        while True: #try except block to handle non int values entered as quantity with a loop to repeat the prompt
+            try:
+                c = int(input("How many"))
+                break
+            except ValueError:
+                print("invalid value, try again!")
         cOrderTotal3["Quantity"].append(c) #increasing quantity per item if user inputs 3
         if c > 0:
             
             cOrderTotalX.append("Sushi")
     if cOrderSel == '4' : #menu item number 4
         cOrderTotal4["Name"].append("Butter chicken")
-        d = int(input("How many"))
+        while True: #try except block to handle non int values entered as quantity with a loop to repeat the prompt
+            try:
+                d = int(input("How many"))
+                break
+            except ValueError:
+                print("invalid value, try again!")
         cOrderTotal4["Quantity"].append(d) #increasing quantity per item if user inputs 4
         if d > 0:
             
             cOrderTotalX.append("Butter chicken")
     if cOrderSel == '5' : #menu item number 5
         cOrderTotal5["Name"].append("Greek salad")
-        e = int(input("How many"))
+        while True:
+            try:
+                e = int(input("How many"))
+                break
+            except ValueError:
+                print("invalid value, try again!")
         cOrderTotal5["Quantity"].append(e) #increasing quantity per item if user inputs 5
         if e > 0:
             
             cOrderTotalX.append("Greek salad")
     if cOrderSel == '6' : #menu item number 6
         cOrderTotal6["Name"].append("Poutine")
-        f = int(input("How many"))
+        while True:
+            try:
+                f = int(input("How many"))
+                break
+            except ValueError:
+                print("invalid value, try again!")
         cOrderTotal6["Quantity"].append(f) #increasing quantity per item if user inputs 6
         if f > 0:
            
@@ -121,7 +151,7 @@ def tipC(J,K): #tip calculator
         tipA = .15 * (K) 
     if (J) == 20 :
         tipA = .20 * (K)
-    if (J) != 10 and (J) != 15 and (J) != 5 :
+    if (J) != 10 and (J) != 15 and (J) != 20 :
         print("Invalid tip amount 10% or 15% or 20% only!")
         mm()
     return tipA 
@@ -138,7 +168,13 @@ def delivy (x) : #final delivery/discount calculator
                 print("Enjoy a 15% discount on orders over $500 & a waived delivery charge of $5!")
                 grand = ((subT) - discnt15 -5)  #discount and  delivery calculation
                 custInfo["Instructions"].append("Free Delivery")
-                tip = float(input("Tip the delivery person 10% 15% or 20%"))
+                while True:
+                    try: #try except block to handle non int values entered as tip with a loop to repeat the prompt
+                        tip = float(input("Tip the delivery person 10% 15% or 20%"))
+                        break
+                    except ValueError:
+                        print("Invalid value, try again!")
+    
                 tipC(tip,subT)
                 
                 taxTime(grand)
@@ -250,8 +286,13 @@ def delivy (x) : #final delivery/discount calculator
                 print("Enjoy a 10% discount on orders over $100 & a waived delivery charge of $5!")
                 custInfo["Instructions"].append("Free Delivery")
                 grand = ((subT) - discnt10 -5)
+                while True:
+                    try:
+                        tip = float(input("Tip the delivery person 10% 15% or 20%"))
+                        break
+                    except ValueError:
+                        print("Invalid value, try again!")
                 
-                tip = float(input("Tip the delivery person 10% 15% or 20%"))
                 tipC(tip,subT)
                 taxTime(grand)
                 headers = ['Items', 'Quantity', 'Unit Price($)', 'Sub Total($)']    #tabulate
@@ -360,7 +401,12 @@ def delivy (x) : #final delivery/discount calculator
                     grand = ((subT) - discnt5 -5)
                     print("Enjoy a 5% discount on orders under $100 & a waived delivery charge of $5!")
                     custInfo["Instructions"].append("Free Delivery")
-                    tip = float(input("Tip the delivery person 10% 15% or 20%"))
+                    while True:
+                        try: #try except block to handle non int values entered as tip with a loop to repeat the prompt
+                            tip = float(input("Tip the delivery person 10% 15% or 20%"))
+                            break
+                        except ValueError:
+                            print("invalid value, try again!")
                     tipC(tip,subT)
                     taxTime(grand)
                     headers = ['Items', 'Quantity', 'Unit Price($)', 'Sub Total($)']    #tabulate
@@ -467,7 +513,13 @@ def delivy (x) : #final delivery/discount calculator
                     grand = ((subT) - discnt5 + 5)
                     print("Enjoy a 5% discount on orders under $100")
                     custInfo["Instructions"].append("+ $5 Delivery Charge")
-                    tip = float(input("Tip the delivery person 10% 15% or 20%"))
+                    while True:
+                        try: #try except block to handle non int values entered as tip with a loop to repeat the prompt
+
+                            tip = float(input("Tip the delivery person 10% 15% or 20%"))
+                            break
+                        except ValueError:
+                            print("invalid value, try again!")
                     tipC(tip,subT)
                     taxTime(grand)
                     headers = ['Items', 'Quantity', 'Unit Price($)', 'Sub Total($)']    #tabulate
