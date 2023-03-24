@@ -286,8 +286,14 @@ def delivy (x) : #final delivery/discount calculator
                 newFile = open("arnoldreceipt.txt", 'w')
                 newFile = open("arnoldreceipt.txt", 'a')
                 newFile.write("Date/Time: {}\nReceipt".format(now))
+                newFile.write("\n")
                 newFile.write(tabulate(custInfo, headers = custHead))
-                newFile.write(tabulate(table, headers=headers, floatfmt=".2f"))
+                newFile.write("\n")
+                
+                
+                newFile.write("\n")
+                newFile.write(tabulate([[ str(amp), str(mass), str(period), str(ecc)]], headers = ['Items','Qty', 'Unit Price($)','Sub Total($)'],floatfmt=".2f"))
+                newFile.write("\n")
                 newFile.write(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand), str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
                 newFile.close()
                 print("The summary txt file has been succesfully written to ", os.getcwd()) #Displaying file pathway
