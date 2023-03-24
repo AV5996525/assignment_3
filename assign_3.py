@@ -20,10 +20,12 @@ custInfo["Province"].append(input("Enter your current province:"))
 custInfo["Postal Code"].append(input("Enter your current postal code:"))
 custInfo["Address"].append(input("Enter your current address:"))
 
-
-
-
+import os
+from datetime import datetime
+from datetime import date
 from tabulate import tabulate
+today = date.today()
+now = datetime.now()
 def mm (): # creating main menu function
     new_list = []
     
@@ -281,6 +283,12 @@ def delivy (x) : #final delivery/discount calculator
                 
                 print(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand), str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
                 print("You Saved $",round(discnt15,2),"\nThank you for choosing Arnold's Amazing Eats II")
+                newFile = open("arnoldreceipt.txt", 'w')
+                newFile = open("arnoldreceipt.txt", 'a')
+                newFile.write("{}\t{}\nReceipt".format(str(today),now))
+                newFile.close()
+                print("The summary txt file has been succesfully written to ", os.getcwd()) #Displaying file pathway
+                print("File name: ", newFile) #Displaying file name "schoolreport.txt"
             elif (subT) >= 100 and 500 > (subT) : #discount threshold
                 discnt10 = (.10*(subT))
                 print("Enjoy a 10% discount on orders over $100 & a waived delivery charge of $5!")
