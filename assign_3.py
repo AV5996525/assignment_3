@@ -1,10 +1,12 @@
 #Name:          Assignment_2.py
 #Author:        AJ Varatharajan
 #Date Created:  February 28, 2023
-#Date Last Modified: March 6, 2023
+#Date Last Modified: March 26, 2023
 #Purpose: 
 #This program will accept user input to fill out fields regarding their personal information.
 #The user will be able to select MULTIPLE items. 
+#try and except blocks added to prevent program from crashing
+# a RECEIPT will be saved to a txt file and will notify the user of its creation and location
 #program will ask user to confirm their order and student status. It will prompt for an appropriate entry using y, Y, n, N only.
 #If user does not confirm the order, they CAN re enter their selection.
 #A receipt will be outputted once the user completes the order.
