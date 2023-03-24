@@ -285,10 +285,13 @@ def delivy (x) : #final delivery/discount calculator
                 print("You Saved $",round(discnt15,2),"\nThank you for choosing Arnold's Amazing Eats II")
                 newFile = open("arnoldreceipt.txt", 'w')
                 newFile = open("arnoldreceipt.txt", 'a')
-                newFile.write("{}\t{}\nReceipt".format(str(today),now))
+                newFile.write("Date/Time: {}\nReceipt".format(now))
+                newFile.write(tabulate(custInfo, headers = custHead))
+                newFile.write(tabulate(table, headers=headers, floatfmt=".2f"))
+                newFile.write(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand), str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
                 newFile.close()
                 print("The summary txt file has been succesfully written to ", os.getcwd()) #Displaying file pathway
-                print("File name: ", newFile) #Displaying file name "schoolreport.txt"
+                print("File name: ", newFile) #Displaying file name "arnoldreceipt.txt"
             elif (subT) >= 100 and 500 > (subT) : #discount threshold
                 discnt10 = (.10*(subT))
                 print("Enjoy a 10% discount on orders over $100 & a waived delivery charge of $5!")
