@@ -277,6 +277,7 @@ def delivy (x) : #final delivery/discount calculator
                 period = [UP1,UP2 ,UP3 ,UP4 ,UP5,UP6]    
                 ecc = [ST1, ST2, ST3,ST4,ST5,ST6]   
                 table = zip(amp, mass, period, ecc)
+                tab2 = [[amp],[mass],[period],[ecc]]
                 custHead = ["Name", "Phone", "City", "Province", "Postal", "Address","Delivery"] #customer information headers
                 print(tabulate(custInfo, headers = custHead))
                 print(tabulate(table, headers=headers, floatfmt=".2f"))
@@ -290,9 +291,11 @@ def delivy (x) : #final delivery/discount calculator
                 newFile.write(tabulate(custInfo, headers = custHead))
                 newFile.write("\n")
                 
-                
+                for sx1,sx2,sx3,sx4 in zip(amp, mass, period, ecc):
+                    newFile.write("Item-Qty-Price-Sub total($)\n{}\nItem-Qty-Price-Sub total($)\n{}\nItem-Qty-Price-Sub total($)\n{}\nItem-Qty-Price-Sub total($)\n{}".format(sx1,sx2,sx3,sx4))
+                    
                 newFile.write("\n")
-                newFile.write(tabulate([[ str(amp), str(mass), str(period), str(ecc)]], headers = ['Items','Qty', 'Unit Price($)','Sub Total($)'],floatfmt=".2f"))
+                
                 newFile.write("\n")
                 newFile.write(tabulate([[ str(tipC(tip,subT)), str(taxTime(grand)), str(grand), str(taxTime(grand)+tipC(tip,subT)+grand)]], headers = ['Tip($)','Tax($)', 'Total($)','Grand Total($)'],floatfmt=".2f"))
                 newFile.close()
